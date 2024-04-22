@@ -1,0 +1,40 @@
+body{
+    background-image: url('img/5571916.jpg');
+    
+    background-repeat: no-repeat;
+    background-position-x: center; /* Centra la imagen horizontalmente */
+    
+
+}
+
+#miObjeto{
+    width: 100px; 
+    height: 100px;  
+    position: absolute;  
+    left: 47%;
+    
+    
+    
+    
+}
+
+.contenedor{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+    text-align: center;
+    
+}
+
+.logo{
+    max-width: 200px;
+    margin-top: 50px;
+     
+}
+
+.titulo{
+    text-align: center;
+    color: aliceblue;
+}
+

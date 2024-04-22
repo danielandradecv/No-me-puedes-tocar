@@ -1,38 +1,13 @@
-const objeto = document.getElementById('objeto');
+var miObjeto = document.getElementById('miObjeto');
 
-objeto.addEventListener('pointerdown', (event) => {
-    // Obtener la posición inicial del objeto y del puntero
-    const initialObjX = objeto.offsetLeft;
-    const initialObjY = objeto.offsetTop;
-    const initialPointerX = event.clientX;
-    const initialPointerY = event.clientY;
+document.addEventListener('mousemove', function(e) {
+  var x = e.clientX;
+  var y = e.clientY;
+  var boxX = miObjeto.offsetLeft + 50;  // Sumamos 50 para obtener el centro del objeto
+  var boxY = miObjeto.offsetTop + 50;
 
-    // Calcular la diferencia entre la posición inicial del objeto y del puntero
-    const offsetX = initialPointerX - initialObjX;
-    const offsetY = initialPointerY - initialObjY;
-
-    // Función que se ejecutará cuando se mueva el puntero
-    const moveObject = (moveEvent) => {
-        // Calcular la nueva posición del objeto
-        const newX = moveEvent.clientX - offsetX;
-        const newY = moveEvent.clientY - offsetY;
-
-        // Mover el objeto a la nueva posición
-        objeto.style.left = `${newX}px`;
-        objeto.style.top = `${newY}px`;
-    };
-
-    // Agregar evento de movimiento al objeto
-    document.addEventListener('pointermove', moveObject);
-
-    // Función que se ejecutará cuando se suelte el puntero
-    const releaseObject = () => {
-        // Remover el evento de movimiento del objeto
-        document.removeEventListener('pointermove', moveObject);
-        // Remover el evento de soltar el puntero
-        document.removeEventListener('pointerup', releaseObject);
-    };
-
-    // Agregar evento de soltar el puntero al documento
-    document.addEventListener('pointerup', releaseObject);
+  if (Math.abs(x - boxX) < 50 && Math.abs(y - boxY) < 50) {
+    miObjeto.style.left = Math.random() * (window.innerWidth - 8) + 'px';  // Restamos 100 para tener en cuenta el tamaño del objeto
+    miObjeto.style.top = Math.random() * (window.innerHeight - 8) + 'px';
+  }
 });

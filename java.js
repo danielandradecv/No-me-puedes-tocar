@@ -1,5 +1,6 @@
+// creo una variable llamando al id de mi html el cual quiero aplicar el codigo
 var miObjeto = document.getElementById('miObjeto');
-
+//aqui se detecta señales del dom para cambiar la posicion del objeto 
 document.addEventListener('mousemove', function(e) {
   var x = e.clientX;
   var y = e.clientY;
